@@ -36,7 +36,9 @@ WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`, CURDATE()) > 30;
 
 ```sql
 
-
+SELECT COUNT(`id`)
+FROM `courses`
+WHERE `period` = 'I semestre' AND `year` = '1';
 
 ```
 
