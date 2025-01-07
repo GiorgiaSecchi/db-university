@@ -76,16 +76,19 @@ FROM `departments`;
 
 ```sql
 
-
+SELECT COUNT(`id`)
+FROM `teachers`
+WHERE `phone` IS NULL;
 
 ```
 
-9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo
-   degree_id, inserire un valore casuale)
+9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo degree_id, inserire un valore casuale)
 
 ```sql
 
-
+SELECT * FROM `students`;
+INSERT INTO `students` (degree_id, name, surname, date_of_birth, fiscal_code, enrolment_date, registration_number, email)
+VALUES (20, 'Giorgia', 'Secchi', '1992-06-15', 'JHNDOE95M15Z123A', '2025-01-07', '621033', 'gio.se@example.com');
 
 ```
 
