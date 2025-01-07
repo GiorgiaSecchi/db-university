@@ -96,7 +96,11 @@ VALUES (20, 'Giorgia', 'Secchi', '1992-06-15', 'JHNDOE95M15Z123A', '2025-01-07',
 
 ```sql
 
-
+SELECT *
+FROM `teachers`;
+UPDATE `teachers`
+SET `office_number` = 126
+WHERE `id` = 58;
 
 ```
 
