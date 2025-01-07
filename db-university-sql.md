@@ -57,7 +57,9 @@ WHERE `hour` > '14:00:00' AND `date`= '2020-06-20';
 
 ```sql
 
-
+SELECT COUNT(`id`)
+FROM `degrees`
+WHERE `level` = 'magistrale' ;
 
 ```
 
