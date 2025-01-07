@@ -67,7 +67,8 @@ WHERE `level` = 'magistrale' ;
 
 ```sql
 
-
+SELECT COUNT(`id`)
+FROM `departments`;
 
 ```
 
