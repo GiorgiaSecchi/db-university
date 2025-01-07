@@ -108,6 +108,9 @@ WHERE `id` = 58;
 
 ```sql
 
-
+SELECT * FROM university.students
+WHERE `name` = 'Giorgia' AND `surname` = 'Secchi';
+DELETE FROM `students`
+WHERE `id` = 5001;
 
 ```
