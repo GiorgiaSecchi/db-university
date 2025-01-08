@@ -121,7 +121,30 @@ ON `teachers`. `id` = `courses`.`id`;
 
 ```sql
 
+SELECT
+	`teachers` . `id`  AS `teacher_id`,
+    `teachers` . `name` AS `teacher_name`,
+	`teachers` . `surname` AS `teacher_surname`,
 
+
+	`departments` . `id`  AS `department_id`,
+	`departments` . `name` AS `department_name`
+
+FROM `teachers`
+
+INNER JOIN `course_teacher`
+ON `teachers`. `id` = `course_teacher`.`teacher_id`
+
+INNER JOIN `courses`
+ON `course_teacher`. `course_id` = `courses`.`id`
+
+INNER JOIN `degrees`
+ON `courses`.`degree_id` = `degrees`. `id`
+
+INNER JOIN `departments`
+ON `degrees`. `department_id` = `departments`.`id`
+
+WHERE `departments` .`id` = 5
 
 ```
 
