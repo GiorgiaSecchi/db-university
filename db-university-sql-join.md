@@ -154,6 +154,26 @@ WHERE `departments` .`id` = 5
 
 ```sql
 
+SELECT
+    `students` . `id` AS `student_id`,
+    `students` . `name` AS `student_name`,
+    `students` . `surname` AS `student_surname`,
 
+    `exams` . `id` AS `exam_id`,
+    `exams` . `date` AS `exam_date`,
+
+    COUNT(`exam_student` . `exam_id`) AS `number_attempts`,
+    MAX(`exam_student` . `vote`) AS `max_vote`
+
+FROM `students`
+
+INNER JOIN `exam_student`
+ON `students` . `id` = `exam_student`.`student_id`
+
+INNER JOIN `exams`
+ON `exams` . `id` = `exam_student`. `exam_id`
+
+WHERE `exam_student`. `vote` >= 18
+GROUP BY `students` . `id`, `exams` . `id` ;
 
 ```
