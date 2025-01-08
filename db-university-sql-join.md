@@ -42,10 +42,11 @@ SELECT
 	`teachers` . `id`  AS `teacher_id`,
     `teachers` . `name` AS `teacher_name`,
 	`teachers` . `surname` AS `teacher_surname`,
+
     `courses` . `id` AS `course_id`,
 	`courses` . `name` AS `course_name`,
     `courses` . `period`,
-     `courses` . `year`
+    `courses` . `year`
 
 FROM `course_teacher`
 
@@ -67,11 +68,13 @@ SELECT
 	`students`.`id` AS  `student_id`,
 	`students`.`surname` AS  `student_surname`,
 	`students`.`name` AS  `student_name`,
+
 	`degrees`.`id` AS  `degree_id`,
 	`degrees`.`name` AS  `degree_name`,
 	`degrees`.`level`,
-	`departments`.`id` AS  `departments_id`,
-	`departments`.`name` AS  `departments_name`
+
+	`departments`.`id` AS  `department_id`,
+	`departments`.`name` AS  `department_name`
 
 FROM `students`
 
@@ -89,7 +92,27 @@ ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
 
 ```sql
 
+SELECT
+	`degrees` . `id`  AS `degree_id`,
+	`degrees` . `name` AS `degree_name`,
+    `degrees` . `level`,
 
+    `courses` . `id` AS `course_id`,
+	`courses` . `name` AS `course_name`,
+    `courses` . `period`,
+	`courses` . `year`,
+
+	`teachers` . `id`  AS `teacher_id`,
+    `teachers` . `name` AS `teacher_name`,
+	`teachers` . `surname` AS `teacher_surname`
+
+FROM `degrees`
+
+INNER JOIN `courses`
+ON `degrees`. `id` = `courses`.`degree_id`
+
+INNER JOIN `teachers`
+ON `teachers`. `id` = `courses`.`id`;
 
 ```
 
