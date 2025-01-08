@@ -8,6 +8,7 @@ SELECT
 	`students` . `id` AS `students_id`,
 	`students` . `name` AS `students_name`,
     `degrees` . `name` AS `degree_name`
+
 FROM `students`
 INNER JOIN `degrees`
 ON `students`. `degree_id` = `degrees`.`id`
@@ -20,7 +21,17 @@ WHERE `degrees`.`id` = 53;
 
 ```sql
 
+SELECT
+	SELECT
+	`degrees` . `name` AS `degrees_name`,
+    `degrees` . `level`,
+	`departments` . `name` AS `departments_name`
 
+FROM `degrees`
+INNER JOIN `departments`
+ON `degrees`. `department_id` = `departments`.`id`
+WHERE `departments` .`name` = "Dipartimento di Neuroscienze"
+	AND `degrees` . `level`= "magistrale" ;
 
 ```
 
