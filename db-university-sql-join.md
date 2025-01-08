@@ -4,7 +4,14 @@
 
 ```sql
 
-
+SELECT
+	`students` . `id` AS `students_id`,
+	`students` . `name` AS `students_name`,
+    `degrees` . `name` AS `degree_name`
+FROM `students`
+INNER JOIN `degrees`
+ON `students`. `degree_id` = `degrees`.`id`
+WHERE `degrees`.`id` = 53;
 
 ```
 
