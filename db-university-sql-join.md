@@ -63,6 +63,25 @@ WHERE `teachers`.`id` = 44;
 
 ```sql
 
+SELECT
+	`students`.`id` AS  `student_id`,
+	`students`.`surname` AS  `student_surname`,
+	`students`.`name` AS  `student_name`,
+	`degrees`.`id` AS  `degree_id`,
+	`degrees`.`name` AS  `degree_name`,
+	`degrees`.`level`,
+	`departments`.`id` AS  `departments_id`,
+	`departments`.`name` AS  `departments_name`
+
+FROM `students`
+
+INNER JOIN `degrees`
+ON `students`. `degree_id` = `degrees`.`id`
+
+INNER JOIN `departments`
+ON `degrees`. `department_id` = `departments`.`id`
+
+ORDER BY `students`.`surname` ASC, `students`.`name` ASC;
 
 ```
 
