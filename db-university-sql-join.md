@@ -22,7 +22,6 @@ WHERE `degrees`.`id` = 53;
 ```sql
 
 SELECT
-	SELECT
 	`degrees` . `name` AS `degrees_name`,
     `degrees` . `level`,
 	`departments` . `name` AS `departments_name`
@@ -30,8 +29,8 @@ SELECT
 FROM `degrees`
 INNER JOIN `departments`
 ON `degrees`. `department_id` = `departments`.`id`
-WHERE `departments` .`name` = "Dipartimento di Neuroscienze"
-	AND `degrees` . `level`= "magistrale" ;
+WHERE `departments` .`name` = 'Dipartimento di Neuroscienze'
+	AND `degrees` . `level`= 'magistrale' ;
 
 ```
 
@@ -39,6 +38,24 @@ WHERE `departments` .`name` = "Dipartimento di Neuroscienze"
 
 ```sql
 
+SELECT
+	`teachers` . `id`  AS `teacher_id`,
+    `teachers` . `name` AS `teacher_name`,
+	`teachers` . `surname` AS `teacher_surname`,
+    `courses` . `id` AS `course_id`,
+	`courses` . `name` AS `course_name`,
+    `courses` . `period`,
+     `courses` . `year`
+
+FROM `course_teacher`
+
+INNER JOIN `teachers`
+ON `course_teacher`. `teacher_id` = `teachers`.`id`
+
+INNER JOIN `courses`
+ON `courses`. `id` = `course_teacher`.`course_id`
+
+WHERE `teachers`.`id` = 44;
 
 ```
 
