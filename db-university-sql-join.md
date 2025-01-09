@@ -162,7 +162,12 @@ SELECT
     `exams` . `id` AS `exam_id`,
     `exams` . `date` AS `exam_date`,
 
-    COUNT(`exam_student` . `exam_id`) AS `number_attempts`,
+	`courses` . `name`
+	`courses` . `year`
+	`courses` . `cfu`
+
+    -- COUNT(`exam_student` . `exam_id`) AS `number_attempts`,
+    COUNT(`exam_student` . `student_id`) AS `number_attempts`,
     MAX(`exam_student` . `vote`) AS `max_vote`
 
 FROM `students`
@@ -173,7 +178,13 @@ ON `students` . `id` = `exam_student`.`student_id`
 INNER JOIN `exams`
 ON `exams` . `id` = `exam_student`. `exam_id`
 
-WHERE `exam_student`. `vote` >= 18
-GROUP BY `students` . `id`, `exams` . `id` ;
+INNER JOIN `courses`
+ON `exams` . `course_id` = `courses`. `id`
+
+-- WHERE `exam_student`. `vote` >= 18
+-- GROUP BY `students` . `id`, `exams` . `id` ;
+
+GROUP BY `exam_student` . `student_id`, `courses` . `id` ;
+HAVING MAX(`exam_student`. `vote`)  >= 18
 
 ```
